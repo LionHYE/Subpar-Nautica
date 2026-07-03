@@ -87,7 +87,7 @@ html,body{margin:0;padding:0;width:100%;height:100%;overflow:hidden;background:#
 </head>
 <body>
 <canvas id="c"></canvas>
-<div id="loadmsg">ESTABLISHING UPLINK…</div>
+<div id="loadmsg" data-i18n="loading">ESTABLISHING UPLINK…</div>
 <div id="hud" style="opacity:0">
   <div id="compass"><div id="compassStrip"></div></div>
   <div id="objective"></div>
@@ -103,33 +103,33 @@ html,body{margin:0;padding:0;width:100%;height:100%;overflow:hidden;background:#
   <div id="waypoint" style="opacity:0"><div class="d"></div><div class="t"></div></div>
   <div id="subtitle"></div>
   <div id="bars">
-    <div class="blabel">OXYGEN</div><div class="bar"><i id="o2fill"></i></div>
-    <div class="blabel">INTEGRITY</div><div class="bar" style="width:140px"><i id="hpfill"></i></div>
+    <div class="blabel" data-i18n="oxygen">OXYGEN</div><div class="bar"><i id="o2fill"></i></div>
+    <div class="blabel" data-i18n="integrity">INTEGRITY</div><div class="bar" style="width:140px"><i id="hpfill"></i></div>
   </div>
   <div id="quickbar">
-    <div class="slot active" id="slot1"><span class="k">1</span><span class="ic">◎</span>SCANNER</div>
-    <div class="slot off" id="slot2"><span class="k">2</span><span class="ic">☀</span>HEADLAMP</div>
-    <div class="slot off" id="slot3"><span class="k">3</span><span class="ic">✸</span>FLARE<span class="n" id="flareN"></span></div>
+    <div class="slot active" id="slot1"><span class="k">1</span><span class="ic">◎</span><span data-i18n="scanner">SCANNER</span></div>
+    <div class="slot off" id="slot2"><span class="k">2</span><span class="ic">☀</span><span data-i18n="headlamp">HEADLAMP</span></div>
+    <div class="slot off" id="slot3"><span class="k">3</span><span class="ic">✸</span><span data-i18n="flare">FLARE</span><span class="n" id="flareN"></span></div>
   </div>
-  <div id="depth"><small>DEPTH</small><span id="depthN">0</span> m</div>
+  <div id="depth"><small data-i18n="depth">DEPTH</small><span id="depthN">0</span> m</div>
   <div id="subhud">
-    <div>HULL <span id="hullN">100%</span></div>
-    <div>POWER <span id="powerN">100%</span></div>
-    <div>HEADLIGHTS <span id="lightsN">OFF</span></div>
+    <div><span data-i18n="hull">HULL</span> <span id="hullN">100%</span></div>
+    <div><span data-i18n="power">POWER</span> <span id="powerN">100%</span></div>
+    <div><span data-i18n="headlights">HEADLIGHTS</span> <span id="lightsN">OFF</span></div>
   </div>
 </div>
 <div id="redflash"></div><div id="o2warn"></div><div id="fade"></div>
 <div id="start" class="overlay">
   <h1>SUBPAR NAUTICA</h1>
   <div class="sub">AN EBONRIFT SURVEY</div>
-  <div class="begin">CLICK TO BEGIN</div>
+  <div class="begin" data-i18n="begin">CLICK TO BEGIN</div>
 </div>
 <div id="pause" class="overlay">
   <div class="panel">
-    <h2>PAUSED</h2>
-    <span class="mbtn" id="btnResume">RESUME</span>
-    <span class="mbtn" id="btnRestart">RESTART EXPEDITION</span>
-    <h3>CONTROLS</h3>
+    <h2 data-i18n="paused">PAUSED</h2>
+    <span class="mbtn" id="btnResume" data-i18n="resume">RESUME</span>
+    <span class="mbtn" id="btnRestart" data-i18n="restart">RESTART EXPEDITION</span>
+    <h3 data-i18n="controls">CONTROLS</h3>
     <div class="ctl">
       <b>W A S D</b><span>Swim / steer</span>
       <b>Mouse</b><span>Look</span>
@@ -145,30 +145,31 @@ html,body{margin:0;padding:0;width:100%;height:100%;overflow:hidden;background:#
       <b>F3</b><span>Diagnostics</span>
       <b>Esc</b><span>Pause</span>
     </div>
-    <h3>SETTINGS</h3>
-    <div class="srow"><span>Quality</span><select id="selQuality"><option value="0">Low</option><option value="1">Medium</option><option value="2" selected>High</option></select></div>
-    <div class="srow"><span>Master</span><input type="range" id="volMaster" min="0" max="100" value="80"></div>
-    <div class="srow"><span>Music</span><input type="range" id="volMusic" min="0" max="100" value="70"></div>
-    <div class="srow"><span>Effects</span><input type="range" id="volSfx" min="0" max="100" value="85"></div>
-    <h3>DATABANK</h3>
-    <div id="dblist"><i style="color:#5f97aa">No survey data recorded.</i></div>
+    <h3 data-i18n="settings">SETTINGS</h3>
+    <div class="srow"><span data-i18n="language">Language</span><select id="selLanguage"><option value="en">English</option><option value="zh-TW">繁體中文</option></select></div>
+    <div class="srow"><span data-i18n="quality">Quality</span><select id="selQuality"><option value="0" data-i18n="low">Low</option><option value="1" data-i18n="medium">Medium</option><option value="2" selected data-i18n="high">High</option></select></div>
+    <div class="srow"><span data-i18n="master">Master</span><input type="range" id="volMaster" min="0" max="100" value="80"></div>
+    <div class="srow"><span data-i18n="music">Music</span><input type="range" id="volMusic" min="0" max="100" value="70"></div>
+    <div class="srow"><span data-i18n="effects">Effects</span><input type="range" id="volSfx" min="0" max="100" value="85"></div>
+    <h3 data-i18n="databank">DATABANK</h3>
+    <div id="dblist"><i style="color:#5f97aa" data-i18n="noData">No survey data recorded.</i></div>
   </div>
 </div>
 <div id="fab">
   <div class="panel" style="width:480px">
-    <h2>FABRICATOR</h2>
+    <h2 data-i18n="fabricator">FABRICATOR</h2>
     <div id="recipes"></div>
     <div id="invline"></div>
-    <span class="mbtn" id="btnFabClose" style="margin-top:14px">CLOSE</span>
+    <span class="mbtn" id="btnFabClose" style="margin-top:14px" data-i18n="close">CLOSE</span>
   </div>
 </div>
 <div id="complete" class="overlay">
   <div class="panel">
-    <div style="font-size:12px;letter-spacing:5px;color:#7fd0e8">MISSION COMPLETE</div>
+    <div style="font-size:12px;letter-spacing:5px;color:#7fd0e8" data-i18n="missionComplete">MISSION COMPLETE</div>
     <h1>SUBPAR NAUTICA</h1>
     <div class="stats" id="statLines"></div>
-    <div style="color:#9fd8e8;letter-spacing:2px;margin-bottom:18px">Thanks for playing.</div>
-    <span class="mbtn" id="btnContinue">CONTINUE EXPLORING</span>
+    <div style="color:#9fd8e8;letter-spacing:2px;margin-bottom:18px" data-i18n="thanks">Thanks for playing.</div>
+    <span class="mbtn" id="btnContinue" data-i18n="continue">CONTINUE EXPLORING</span>
   </div>
 </div>
 <div id="debug"></div>
@@ -196,6 +197,62 @@ const V3=(x,y,z)=>new THREE.Vector3(x,y,z);
 /* ------------------------------------------------------------------ */
 const $=id=>document.getElementById(id);
 const dom={hud:$('hud'),obj:$('objective'),prompt:$('prompt'),sub:$('subtitle'),o2:$('o2fill'),hp:$('hpfill'),depth:$('depthN'),scanwrap:$('scanwrap'),scanring:$('scanring'),scanlabel:$('scanlabel'),way:$('waypoint'),wayT:document.querySelector('#waypoint .t'),red:$('redflash'),o2w:$('o2warn'),fade:$('fade'),start:$('start'),pause:$('pause'),fab:$('fab'),complete:$('complete'),debug:$('debug'),compass:$('compassStrip'),subhud:$('subhud'),hull:$('hullN'),power:$('powerN'),lights:$('lightsN'),flareN:$('flareN'),dblist:$('dblist'),recipes:$('recipes'),invline:$('invline'),stats:$('statLines'),load:$('loadmsg')};
+const I18N={
+  en:{loading:'ESTABLISHING UPLINK…',oxygen:'OXYGEN',integrity:'INTEGRITY',depth:'DEPTH',begin:'CLICK TO BEGIN',paused:'PAUSED',resume:'RESUME',restart:'RESTART EXPEDITION',controls:'CONTROLS',settings:'SETTINGS',language:'Language',quality:'Quality',low:'Low',medium:'Medium',high:'High',master:'Master',music:'Music',effects:'Effects',databank:'DATABANK',noData:'No survey data recorded.',fabricator:'FABRICATOR',close:'CLOSE',missionComplete:'MISSION COMPLETE',thanks:'Thanks for playing.',continue:'CONTINUE EXPLORING',scanner:'SCANNER',headlamp:'HEADLAMP',flare:'FLARE',hull:'HULL',power:'POWER',headlights:'HEADLIGHTS'},
+  'zh-TW':{loading:'正在建立連線…',oxygen:'氧氣',integrity:'生命值',depth:'深度',begin:'點擊開始',paused:'遊戲暫停',resume:'繼續遊戲',restart:'重新開始探勘',controls:'操作方式',settings:'設定',language:'語言',quality:'畫面品質',low:'低',medium:'中',high:'高',master:'主音量',music:'音樂',effects:'音效',databank:'資料庫',noData:'尚未記錄任何探勘資料。',fabricator:'製造機',close:'關閉',missionComplete:'任務完成',thanks:'感謝遊玩。',continue:'繼續探索',scanner:'掃描器',headlamp:'頭燈',flare:'照明彈',hull:'船體',power:'電力',headlights:'探照燈'}
+};
+const ZH={
+  'Swim / steer':'游泳／駕駛','Mouse':'滑鼠','Look':'環顧','Ascend / descend':'上升／下潛','Jet-dash':'噴射衝刺',
+  'Interact / hold to scan':'互動／長按掃描','Throw flare':'投擲照明彈','Scanner / headlamp / flare':'掃描器／頭燈／照明彈',
+  'Enter / exit sub':'進入／離開潛艇','Sub headlights':'潛艇探照燈','Sub camera':'潛艇視角','Photo mode':'拍照模式','Diagnostics':'診斷資訊','Pause':'暫停',
+  'Dive to the reef':'下潛至珊瑚礁','Scan reef lifeforms':'掃描珊瑚礁生物','Return to Waystation Halcyon':'返回「翠鳥」中繼站',
+  'Craft the Headlamp and Scanner Amplifier':'製作頭燈與掃描器增幅器','Investigate the signal in Glimmerhollow':'調查微光洞窟中的訊號',
+  'Scan the cave lifeforms':'掃描洞窟生物','Sample the Murkfen':'採集幽沼樣本','Restore station power':'恢復中繼站電力',
+  'Repair the scout sub':'修復偵察潛艇','Descend the Ebonrift Trench':'下潛至黯隙海溝','Deploy the beacon at the spire':'在尖塔旁部署信標',
+  'Hold position — deep scan in progress':'保持位置——深層掃描進行中','RETURN TO THE SURFACE':'返回海面',
+  '[E] Use Fabricator':'[E] 使用製造機','[Hold E] Restore Power':'[長按 E] 恢復電力','[F] Board the Cormorant':'[F] 登上「鸕鶿號」',
+  '[Hold E] Deploy Deep-Scan Beacon':'[長按 E] 部署深層掃描信標','[Hold E] Scan':'[長按 E] 掃描','Power Cell':'動力電池','Depth Module':'深度模組',
+  'Headlamp':'頭燈','Scanner Amplifier':'掃描器增幅器','Flare ×3':'照明彈 ×3','Deep-Scan Beacon':'深層掃描信標',
+  'Lumium':'流明礦','Corite':'珊瑚礦','Biogel':'生物凝膠','Spindart':'針梭魚','Emberfan Coral':'燼扇珊瑚','Glowreed':'螢光蘆',
+  'Veilwing':'幕翼獸','Lantern Drifter':'提燈水母','Scuttlemaw':'爬顎獸','Blightbulb Node':'疫球節點','Riptooth':'裂齒獸',
+  'Duskmaw':'暮顎獸','The Silent Spire':'寂靜尖塔'
+};
+let language=localStorage.getItem('subpar-language')||'en';
+if(!I18N[language])language='en';
+const tr=key=>I18N[language][key]??I18N.en[key]??key;
+const tx=text=>language==='zh-TW'?(ZH[text]??text):text;
+Object.assign(ZH,{
+  'Cavern survey complete. Return to Halcyon with your samples.':'洞窟調查完成。帶著樣本返回「翠鳥」中繼站。',
+  'That specimen contains pressure-resistant tissue. I have added a depth-module pattern to the fabricator.':'該樣本含有耐壓組織。我已將深度模組藍圖加入製造機。',
+  'The signal is strengthening. Deploy the relay where the current is clearest.':'訊號正在增強。請在水流最清澈處部署中繼器。',
+  'Relay online. Halcyon is drawing more power to decode the transmission.':'中繼器上線。「翠鳥」正在調用更多電力解碼訊息。',
+  'Repairs complete. The Cormorant is ready for the trench.':'修復完成。「鸕鶿號」已準備好進入海溝。',
+  'Large contact below us. Keep moving toward the signal.':'下方偵測到大型目標。繼續朝訊號前進。',
+  'Handshake complete. The Silent Spire has released its survey archive.':'連線完成。寂靜尖塔已釋出探勘檔案。',
+  'Ebonrift survey link established. Descend when ready.':'黯隙探勘連線已建立。準備好後即可下潛。',
+  'Vitals restored. The station caught your beacon in time.':'生命徵象已恢復。中繼站及時捕捉到了你的信標。',
+  'Survey baseline logged. Come back to the station — the fabricator is warmed up.':'調查基準已記錄。回到中繼站吧——製造機已預熱完成。',
+  'Biometrics captured. Try not to need them.':'生物特徵已擷取。希望我們用不上它。',
+  'Did you feel that? Something passed the viewport. Get the wall panel, please. Now.':'你感覺到了嗎？有東西剛從觀景窗外經過。去修復牆面配電盤，拜託，現在。',
+  'Power restored. Whatever that was, it came up from the trench — and the signal spiked when it passed. We need the sub, and the sub needs parts.':'電力已恢復。不論那是什麼，它來自海溝；經過時訊號突然飆升。我們需要潛艇，而潛艇需要零件。',
+  'Beacon locked. Twenty seconds for a full-depth handshake. Stay close to the spire — and stay calm.':'信標已鎖定。完整深層連線需要二十秒。留在尖塔附近——保持冷靜。',
+  'HULL LIMIT — pressure rating exceeded. Ascend.':'船體已達極限——壓力超出額定值。立即上升。',
+  'Reading you clearly. Log what lives here — three scans will calibrate the survey.':'收訊清晰。記錄這裡的生物——三次掃描即可完成探勘校準。',
+  'Welcome to Halcyon. The fabricator has your resource manifest.':'歡迎來到「翠鳥」中繼站。製造機已載入你的資源清單。',
+  'The cavern is transmitting biologics I have no records for. Sample them.':'洞窟傳來未知生物訊號。採集它們的樣本。',
+  'There. The Silent Spire. Park the Cormorant and deploy the beacon at its base — on foot.':'就在那裡，寂靜尖塔。停好「鸕鶿號」，徒步到塔基部署信標。'
+});
+const TEXT={
+  iris4:'Cavern survey complete. Return to Halcyon with your samples.',
+  iris5:'That specimen contains pressure-resistant tissue. I have added a depth-module pattern to the fabricator.',
+  iris6:'The signal is strengthening. Deploy the relay where the current is clearest.',
+  iris7:'Relay online. Halcyon is drawing more power to decode the transmission.',
+  iris10:'Repairs complete. The Cormorant is ready for the trench.',
+  iris11:'Large contact below us. Keep moving toward the signal.',
+  iris14:'Handshake complete. The Silent Spire has released its survey archive.',
+  iris16:'Ebonrift survey link established. Descend when ready.'
+};
+const T=key=>tx(TEXT[key]??key);
 {let s='';const dirs=['N','NE','E','SE','S','SW','W','NW'];for(let r=0;r<5;r++)for(const d of dirs)s+='<span>'+d+'</span>';dom.compass.innerHTML=s;}
 
 /* ------------------------------------------------------------------ */
@@ -1043,7 +1100,7 @@ addEventListener('keydown',e=>{
   if(k==='ShiftLeft'||k==='ShiftRight'){
     if(!S.inSub&&player.dashCd<=0){player.dashCd=2.2;const dir=V3(0,0,-1).applyEuler(camera.rotation);player.vel.addScaledVector(dir,14);fovKick=1;sfxDash();bubbleBurst();}
   }
-  if(k==='KeyL'&&S.inSub){S.subLights=!S.subLights;world.subSpot.intensity=S.subLights?260:0;world.subLampMat.emissiveIntensity=S.subLights?3:0;dom.lights.textContent=S.subLights?'ON':'OFF';sfxUI();}
+  if(k==='KeyL'&&S.inSub){S.subLights=!S.subLights;world.subSpot.intensity=S.subLights?260:0;world.subLampMat.emissiveIntensity=S.subLights?3:0;dom.lights.textContent=language==='zh-TW'?(S.subLights?'開':'關'):(S.subLights?'ON':'OFF');sfxUI();}
   if(k==='KeyV'&&S.inSub){S.camThird=!S.camThird;sfxUI();}
   if(k==='KeyF'){
     if(S.inSub){exitSub();}
@@ -1073,7 +1130,7 @@ function bubbleBurst(){for(let i=0;i<4;i++)setTimeout(sfxBubble,i*90);}
 /* ------------------------------------------------------------------ */
 let sayTimer=null;
 function say(who,text,hold=4200){
-  dom.sub.innerHTML='<b>'+who+' —</b> '+text;
+  dom.sub.innerHTML='<b>'+who+' —</b> '+tx(text);
   dom.sub.style.opacity=1;
   clearTimeout(sayTimer);
   sayTimer=setTimeout(()=>dom.sub.style.opacity=0,hold);
@@ -1096,16 +1153,29 @@ const DB={
   monolith:['The Silent Spire','An artificial structure predating every known survey. Its alloy returns no known signature. The carvings repeat one sequence — the same sequence as the deep signal.'],
   duck:['???','A small buoyant effigy of a surface bird. It has no business being here. It squeaks when compressed. Morale value: immeasurable.'],
 };
+const DB_ZH={
+  spindart:['針梭魚','流明淺灘中的針狀群游魚。鏡面鱗片會把陽光散射成移動的星群，魚群游動時宛如天候變化。'],
+  emberfan:['燼扇珊瑚','層層堆疊成扇形的群體濾食生物。火光般的亮度來自代謝，水流帶來越多食物便越明亮。'],
+  glowreed:['螢光蘆','將日光儲存在莖內、入夜後釋放的感光植物。早期探勘隊會剪下它作為路標；一夜便能再生。'],
+  veilwing:['幕翼獸','翼展八公尺的溫馴遠洋滑翔生物。一生沿固定路線巡游，小型礁區生物會乘著牠的尾流前進。'],
+  drifter:['提燈水母','從不碰觸岩壁的洞窟水母。鐘體與鄰近個體同步搏動，整座洞窟彷彿以儀器無法解釋的節奏呼吸。'],
+  scuttlemaw:['爬顎獸','幽沼的機會主義食腐者，半蟹半烏賊。牠採食受感染珊瑚的死組織，似乎對疫病完全免疫。'],
+  blightbulb:['疫球節點','感染核心的膿狀增生物。整片沼澤中的脈動完全同步，彷彿疫病是個只懷著一個緩慢念頭的生物。'],
+  riptooth:['裂齒獸','盤踞於疫區邊緣的獵食者。衝鋒大多只是恫嚇，威嚇耗費的能量甚至超過狩獵；牠極度厭惡強光。'],
+  duskmaw:['暮顎獸','黯隙海溝的霸主。聲納推測其體長超過六十公尺。牠不是在海溝狩獵，而是在守護它。深處有某種東西受到看守。'],
+  monolith:['寂靜尖塔','早於所有已知探勘紀錄的人工構造。合金特徵不符合任何已知材料；刻紋反覆出現與深層訊號相同的序列。'],
+  duck:['？？？','一個仿造地表鳥類的小型漂浮玩偶。它根本不該出現在這裡，擠壓時還會發出叫聲。士氣價值：無法估量。']
+};
 function addScan(id){
   if(S.scans[id])return false;
   S.scans[id]=true;
   if(id!=='duck')S.scanCount++;
-  const e=DB[id];
+  const e=language==='zh-TW'?DB_ZH[id]:DB[id];
   const div=document.createElement('div');div.className='dbe';
   div.innerHTML='<b>'+e[0]+'</b><p>'+e[1]+'</p>';
   if(dom.dblist.querySelector('i'))dom.dblist.innerHTML='';
   dom.dblist.appendChild(div);
-  if(id==='blightbulb'&&!S.gear.depthmod){unlockRecipe('depthmod');say('IRIS','Sample logged. The infection runs deeper than the fen — I\'ve drafted a pressure module for the sub from its lattice structure.');}
+  if(id==='blightbulb'&&!S.gear.depthmod){unlockRecipe('depthmod');say('IRIS',T('iris5'));}
   if(id==='duck')tone(1800,.18,'square',.12,-400);
   return true;
 }
@@ -1131,16 +1201,16 @@ function renderFab(){
     if(!r.unlocked())continue;
     const done=r.one&&r.got();
     const div=document.createElement('div');div.className='recipe'+(done?' done':'');
-    const cost=Object.entries(r.cost).map(([k,v])=>v+'× '+names[k]).join(' · ');
-    div.innerHTML='<div><div>'+r.name+'</div><div class="cost">'+cost+'</div></div>';
+    const cost=Object.entries(r.cost).map(([k,v])=>v+'× '+tx(names[k])).join(' · ');
+    div.innerHTML='<div><div>'+tx(r.name)+'</div><div class="cost">'+cost+'</div></div>';
     const b=document.createElement('button');
-    b.textContent=done?'BUILT':'BUILD';
+    b.textContent=language==='zh-TW'?(done?'已製作':'製作'):(done?'BUILT':'BUILD');
     b.disabled=done||!canAfford(r.cost);
     b.onclick=()=>{if(done||!canAfford(r.cost))return;Object.entries(r.cost).forEach(([k,v])=>S.inv[k]-=v);r.make();sfxCraft();renderFab();updateQuickbar();checkCraftObjective();};
     div.appendChild(b);
     dom.recipes.appendChild(div);
   }
-  dom.invline.textContent='STORAGE — Lumium: '+S.inv.lum+' · Corite: '+S.inv.cor+' · Biogel: '+S.inv.gel;
+  dom.invline.textContent=(language==='zh-TW'?'儲藏庫 — ':'STORAGE — ')+tx('Lumium')+': '+S.inv.lum+' · '+tx('Corite')+': '+S.inv.cor+' · '+tx('Biogel')+': '+S.inv.gel;
 }
 function openFab(){dom.fab.style.display='flex';renderFab();document.exitPointerLock();sfxUI();}
 $('btnFabClose').onclick=()=>{dom.fab.style.display='none';document.body.requestPointerLock();sfxUI();};
@@ -1178,7 +1248,7 @@ const OBJ=[
 // 8 restore power, 9 repair sub, 10 descend, 11 deploy, 12 hold scan, 13 surface.
 function objText(){
   const o=OBJ[S.obj];if(!o)return'';
-  let t=o.text;
+  let t=tx(o.text);
   if(o.count)t+=' — '+S.objCount+'/'+o.count;
   return t;
 }
@@ -1198,7 +1268,7 @@ function onScanned(id){
   const isNew=addScan(id);
   if(!isNew)return;
   if(S.obj===1&&REEF_SET.includes(id)){S.objCount++;dom.obj.textContent=objText();if(S.objCount>=3){advance();say('IRIS','Survey baseline logged. Come back to the station — the fabricator is warmed up.');}}
-  if(S.obj===5&&CAVE_SET.includes(id)){S.objCount++;dom.obj.textContent=objText();if(S.objCount>=2){advance();say('IRIS','The signal isn\'t coming from the caves. It\'s below them. Past the fen.');}}
+  if(S.obj===5&&CAVE_SET.includes(id)){S.objCount++;dom.obj.textContent=objText();if(S.objCount>=2){advance();say('IRIS',T('iris4'));}}
   if(S.obj===6&&id==='blightbulb'){advance();startPredatorPass();}
   if(id==='duskmaw')say('IRIS','Biometrics captured. Try not to need them.');
 }
@@ -1210,7 +1280,7 @@ function startPredatorPass(){
   if(S.predatorPassDone)return;S.predatorPassDone=true;
   ripState.mode='pass';ripState.t=0;
   sfxRoar(false);
-  say('IRIS','Territorial contact — it\'s posturing. A flare will discourage it, if you have one.');
+  say('IRIS',T('iris6'));
 }
 let blackoutStep=0;
 function startBlackout(){
@@ -1219,7 +1289,7 @@ function startBlackout(){
   world.baseLamps.emissiveIntensity=0;world.fabScreen.emissiveIntensity=.1;
   world.panel.material.emissive.setHex(0xff3020);
   sfxAlarm();sfxStinger();
-  say('IRIS','—power fault. Main cell is dead. I\'m blind, Halcyon is dark.',3800);
+  say('IRIS',T('iris7'),3800);
   setObjective(8);
   setTimeout(()=>{setLevi('blackout',14,false);},3500);
   setTimeout(()=>{sfxRoar(true);shake=Math.min(shake+.7,1);},7800);
@@ -1246,7 +1316,7 @@ function beaconDone(){
   S.monolithLit=true;
   world.monoRunes.emissiveIntensity=3.2;world.monoLight.intensity=60;world.monoLight.distance=140;
   sfxScanDone();sfxRoar(true);
-  say('IRIS','It\'s not a ruin. It\'s a beacon — it has been calling the Duskmaw home for ten thousand years. And we just answered for it. Go. GO.',6000);
+  say('IRIS',T('iris14'),6000);
   setObjective(13);
   S.chase=true;setLevi('chase',1,true);
   if(AU.chaseGain)AU.chaseGain.gain.linearRampToValueAtTime(.5,AU.ctx.currentTime+1.5);
@@ -1258,7 +1328,9 @@ function missionComplete(){
   if(AU.humGain)AU.humGain.gain.linearRampToValueAtTime(0,AU.ctx.currentTime+2);
   document.exitPointerLock();
   const mins=Math.floor(S.endTime/60),secs=Math.round(S.endTime%60);
-  dom.stats.innerHTML='Lifeforms scanned — <b>'+S.scanCount+' / '+S.scanTotal+'</b><br>Maximum depth — <b>'+Math.round(S.maxDepth)+' m</b><br>Expedition time — <b>'+mins+'m '+String(secs).padStart(2,'0')+'s</b>';
+  dom.stats.innerHTML=(language==='zh-TW'
+    ?'已掃描生物 — <b>'+S.scanCount+' / '+S.scanTotal+'</b><br>最大深度 — <b>'+Math.round(S.maxDepth)+' m</b><br>探勘時間 — <b>'+mins+'分 '+String(secs).padStart(2,'0')+'秒</b>'
+    :'Lifeforms scanned — <b>'+S.scanCount+' / '+S.scanTotal+'</b><br>Maximum depth — <b>'+Math.round(S.maxDepth)+' m</b><br>Expedition time — <b>'+mins+'m '+String(secs).padStart(2,'0')+'s</b>');
   dom.complete.style.display='flex';
   sfxScanDone();
 }
@@ -1272,6 +1344,29 @@ $('btnContinue').onclick=()=>{
 /* ------------------------------------------------------------------ */
 /* Pause                                                                */
 /* ------------------------------------------------------------------ */
+function renderDatabank(){
+  dom.dblist.innerHTML='';
+  const ids=Object.keys(S.scans);
+  if(!ids.length){dom.dblist.innerHTML='<i style="color:#5f97aa">'+tr('noData')+'</i>';return;}
+  for(const id of ids){
+    const e=language==='zh-TW'?DB_ZH[id]:DB[id];
+    const div=document.createElement('div');div.className='dbe';
+    div.innerHTML='<b>'+e[0]+'</b><p>'+e[1]+'</p>';dom.dblist.appendChild(div);
+  }
+}
+function applyLanguage(){
+  document.documentElement.lang=language;
+  $('selLanguage').value=language;
+  document.querySelectorAll('[data-i18n]').forEach(el=>el.textContent=tr(el.dataset.i18n));
+  document.querySelectorAll('.ctl span,.ctl b').forEach(el=>{
+    if(!el.dataset.en)el.dataset.en=el.textContent;
+    el.textContent=language==='zh-TW'?(ZH[el.dataset.en]??el.dataset.en):el.dataset.en;
+  });
+  dom.lights.textContent=language==='zh-TW'?(S.subLights?'開':'關'):(S.subLights?'ON':'OFF');
+  dom.obj.textContent=objText();
+  if(interact)dom.prompt.textContent=tx(interact.label);
+  renderFab();renderDatabank();
+}
 function togglePause(force){
   if(S.over||!S.started)return;
   S.paused=force===true?true:!S.paused;
@@ -1281,6 +1376,9 @@ function togglePause(force){
 }
 $('btnResume').onclick=()=>togglePause();
 $('btnRestart').onclick=()=>location.reload();
+$('selLanguage').onchange=e=>{
+  language=e.target.value;localStorage.setItem('subpar-language',language);applyLanguage();sfxUI();
+};
 $('selQuality').onchange=e=>{quality=+e.target.value;applyQuality();};
 $('volMaster').oninput=e=>{if(AU.master)AU.master.gain.value=e.target.value/100*.8;};
 $('volMusic').oninput=e=>{if(AU.music)AU.music.gain.value=e.target.value/100*.7;};
@@ -1301,16 +1399,16 @@ function findInteraction(){
   // fixed interactions first
   if(inBase(p)){
     const fp=world.fabricator.getWorldPosition(new THREE.Vector3());
-    if(p.distanceTo(fp)<2.6){interact={type:'fab',label:'[E] Use Fabricator'};return;}
+    if(p.distanceTo(fp)<2.6){interact={type:'fab',label:tx('[E] Use Fabricator')};return;}
     const pp=world.panel.getWorldPosition(new THREE.Vector3());
-    if(!S.panelFixed&&p.distanceTo(pp)<2.6){interact={type:'panel',label:'[Hold E] Restore Power',hold:2.2};return;}
+    if(!S.panelFixed&&p.distanceTo(pp)<2.6){interact={type:'panel',label:tx('[Hold E] Restore Power'),hold:2.2};return;}
   }
   if(!S.inSub&&world.sub&&p.distanceTo(world.sub.position)<5){
-    if(S.obj===9&&S.gear.cell&&S.gear.depthmod&&S.gear.beacon&&S.subParts<2){interact={type:'install',label:'[Hold E] Install '+(S.subParts===0?'Power Cell':'Depth Module'),hold:1.8};return;}
-    if(S.subParts>=2){interact={type:'sub',label:'[F] Board the Cormorant'};return;}
+    if(S.obj===9&&S.gear.cell&&S.gear.depthmod&&S.gear.beacon&&S.subParts<2){interact={type:'install',label:(language==='zh-TW'?'[長按 E] 安裝 ':'[Hold E] Install ')+tx(S.subParts===0?'Power Cell':'Depth Module'),hold:1.8};return;}
+    if(S.subParts>=2){interact={type:'sub',label:tx('[F] Board the Cormorant')};return;}
   }
   if(S.obj===11&&S.gear.beacon&&!S.beaconPlaced&&p.distanceTo(world.monolith.position)<14){
-    interact={type:'beacon',label:'[Hold E] Deploy Deep-Scan Beacon',hold:2.2};return;
+    interact={type:'beacon',label:tx('[Hold E] Deploy Deep-Scan Beacon'),hold:2.2};return;
   }
   // scannables via raycast
   const range=S.gear.amp?22:13;
@@ -1327,7 +1425,7 @@ function findInteraction(){
     const need=Math.max(.55,1-(s.r/Math.max(d,.1))*.7);
     if(dot>need&&d<bestD){best=s;bestD=d;}
   }
-  if(best){scanTarget=best;interact={type:'scan',label:'[Hold E] Scan',hold:S.gear.amp?1.3:2.1};}
+  if(best){scanTarget=best;interact={type:'scan',label:tx('[Hold E] Scan'),hold:S.gear.amp?1.3:2.1};}
 }
 let holdT=0;
 function updateInteraction(dt){
@@ -1341,7 +1439,7 @@ function updateInteraction(dt){
       holdT+=dt;
       if(interact.type==='scan'){
         dom.scanwrap.style.opacity=1;
-        dom.scanlabel.textContent=scanTarget.name.toUpperCase();
+        dom.scanlabel.textContent=tx(scanTarget.name).toUpperCase();
         const k=clamp(holdT/interact.hold,0,1);
         dom.scanring.style.strokeDashoffset=188.5*(1-k);
         if(Math.floor(holdT*6)!==Math.floor((holdT-dt)*6))sfxScanTick();
@@ -1352,7 +1450,7 @@ function updateInteraction(dt){
         if(holdT>=interact.hold){
           holdT=0;dom.scanwrap.style.opacity=0;
           if(interact.type==='panel'){restorePower();}
-          else if(interact.type==='install'){S.subParts++;sfxCraft();world.subDmg[S.subParts-1].material=new THREE.MeshStandardMaterial({color:0xc8a028,roughness:.5,metalness:.55});if(S.subParts>=2)say('IRIS','The Cormorant reads green across the board. She\'ll take you all the way down.');}
+          else if(interact.type==='install'){S.subParts++;sfxCraft();world.subDmg[S.subParts-1].material=new THREE.MeshStandardMaterial({color:0xc8a028,roughness:.5,metalness:.55});if(S.subParts>=2)say('IRIS',T('iris10'));}
           else if(interact.type==='beacon'){deployBeacon();}
         }
       }
@@ -1545,12 +1643,12 @@ function updateTriggers(){
   if(S.obj===7&&!S.blackout&&Math.hypot(p.x-BASE_POS.x,p.z-BASE_POS.z)<30)startBlackout();
   if(S.obj===10&&zoneOf(p)==='trench'&&p.y<-150){
     setObjective(11);
-    if(!leviTrenchIntro){leviTrenchIntro=true;setLevi('trench',34,true);setTimeout(()=>sfxRoar(true),2200);say('IRIS','Contact. It\'s circling the rift wall. Sixty meters, minimum. Keep descending — slowly.',5600);}
+    if(!leviTrenchIntro){leviTrenchIntro=true;setLevi('trench',34,true);setTimeout(()=>sfxRoar(true),2200);say('IRIS',T('iris11'),5600);}
   }
   if(S.obj===11&&!monoHintDone&&p.distanceTo(world.monolith.position)<40){monoHintDone=true;say('IRIS','There. The Silent Spire. Park the Cormorant and deploy the beacon at its base — on foot.',5400);}
   if(S.obj===12&&S.beaconPlaced){
     S.beaconT+=lastDt;
-    dom.obj.textContent=OBJ[12].text+' — '+Math.min(20,Math.floor(S.beaconT))+'s / 20s';
+    dom.obj.textContent=tx(OBJ[12].text)+' — '+Math.min(20,Math.floor(S.beaconT))+(language==='zh-TW'?'秒 / 20秒':'s / 20s');
     leviState.radius=Math.max(24,62-S.beaconT*1.9);
     leviState.curve=leviPath('monolith');
     if(S.beaconT>=20)beaconDone();
@@ -1684,11 +1782,12 @@ dom.start.addEventListener('click',()=>{
   S.started=true;S.startClock=performance.now();
   dom.hud.style.opacity=1;
   setObjective(0);
-  setTimeout(()=>say('IRIS','Survey drop confirmed, and the deep signal is still repeating. Whenever you\'re ready — the reef is waiting below.',5600),1200);
+  setTimeout(()=>say('IRIS',T('iris16'),5600),1200);
 });
 applyQuality();
 updateQuickbar();
 renderFab();
+applyLanguage();
 frame();
 </script>
 </body>
